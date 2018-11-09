@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">android-begginer-2018</string>
+    <string name="dextra">Dextra</string>
+    <string name="hello_word">Olá Mundo!</string>
+    <string name="username">Seja bem-vindo, %s</string>
+</resources>
