@@ -3,7 +3,6 @@ package br.app.dextra.android_begginer_2018;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 
 import br.app.dextra.android_begginer_2018.demo.HomeContentFragment;
 import br.app.dextra.android_begginer_2018.demo.HomeHeaderFragment;
@@ -14,37 +13,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadButtonText();
 
-        // Controlador de fragments da activity
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-
-        supportFragmentManager
-                .beginTransaction() // comeca uma transicao de fragments
-
-                // Adicionamos nossa fragment no nosso container
-                .replace(R.id.container1, HomeHeaderFragment.newInstance()) // .add() ou .remove() ou qualquer funcao que quiser implementar no contianer
-
-                // Aplica a transição de fragments
-                .commitAllowingStateLoss();
-
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container2, HomeContentFragment.newInstance())
+                .replace(R.id.container1, HomeHeaderFragment.newInstance())
                 .commitAllowingStateLoss();
 
-    }
+      /*
+        O erro aconteceu porque o botao sayHelloButton nao esta mais no contexto da activity
+        e sim do homeContentFragment :/
 
-    private void loadButtonText() {
-        // Carregando informação da intent
+        Abaixo segue um exemplo de como passar esse dado de uma activity para uma fragment
+     */
         Bundle extras = getIntent().getExtras();
         String username = extras.getString("username");
 
-        // Carregando texto do botão
-        String buttonText = getString(R.string.username, username);
-
-        // Aplicando texto do botão
-        Button button = findViewById(R.id.sayHelloButton);
-        button.setText(buttonText);
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container2, HomeContentFragment.newInstance(username))
+                .commitAllowingStateLoss();
     }
 }
