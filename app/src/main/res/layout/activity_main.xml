@@ -14,7 +14,8 @@
             android:id="@+id/dextra-png"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dextra_png" />
+            android:src="@drawable/dextra_png"
+            android:visibility="gone" />
 
         <View
             android:layout_width="match_parent"
