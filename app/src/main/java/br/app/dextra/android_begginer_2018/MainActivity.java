@@ -1,9 +1,11 @@
 package br.app.dextra.android_begginer_2018;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
-import android.widget.Toast;
+
+import br.app.dextra.android_begginer_2018.demo.HomeHeaderFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,7 +13,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loadButtonText();
 
+        // Controlador de fragments da activity
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+
+        supportFragmentManager
+                .beginTransaction() // comeca uma transicao de fragments
+
+                // Adicionamos nossa fragment no nosso container
+                .replace(R.id.container1, HomeHeaderFragment.newInstance()) // .add() ou .remove() ou qualquer funcao que quiser implementar no contianer
+
+
+                .commitAllowingStateLoss();
+
+    }
+
+    private void loadButtonText() {
         // Carregando informação da intent
         Bundle extras = getIntent().getExtras();
         String username = extras.getString("username");
@@ -22,42 +40,5 @@ public class MainActivity extends AppCompatActivity {
         // Aplicando texto do botão
         Button button = findViewById(R.id.sayHelloButton);
         button.setText(buttonText);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
     }
 }

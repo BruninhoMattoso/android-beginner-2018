@@ -21,13 +21,6 @@ public class SplashActivity extends AppCompatActivity {
                 openMainActivity("Faustão");
             }
         }, 2000);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                openMainActivity("Luciano Hulk");
-            }
-        }, 3000);
     }
 
     private void openMainActivity(String username) {
