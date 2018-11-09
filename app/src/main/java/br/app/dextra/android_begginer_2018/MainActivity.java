@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import br.app.dextra.android_begginer_2018.demo.HomeContentFragment;
 import br.app.dextra.android_begginer_2018.demo.HomeHeaderFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
                 // Adicionamos nossa fragment no nosso container
                 .replace(R.id.container1, HomeHeaderFragment.newInstance()) // .add() ou .remove() ou qualquer funcao que quiser implementar no contianer
 
+                // Aplica a transição de fragments
+                .commitAllowingStateLoss();
 
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container2, HomeContentFragment.newInstance())
                 .commitAllowingStateLoss();
 
     }
