@@ -18,15 +18,25 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                openMainActivity();
+                openMainActivity("Faustão");
+            }
+        }, 2000);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                openMainActivity("Luciano Hulk");
             }
         }, 3000);
     }
 
-    private void openMainActivity() {
-        Intent intent = new Intent(getBaseContext(), MainActivity.class);
-        intent.putExtra("username", "Faustão");
+    private void openMainActivity(String username) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("username", username);
 
         startActivity(intent);
+
+        // Finaliza a SplashActivity, independente do que estiver rodando
+        finish();
     }
 }
