@@ -12,18 +12,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ImageView dextraPng = findViewById(R.id.dextra_png);
-
-        // Mudando a visualizacao da imagem informada no xml acima
-        dextraPng.setVisibility(View.VISIBLE);
-
-        // Adicionando um evento de click na imagem
-        dextraPng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Clique da imagem", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 }
