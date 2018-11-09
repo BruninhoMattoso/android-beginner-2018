@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">android-begginer-2018</string>
+    <string name="dextra">Dextra</string>
+    <string name="hello_word">Oá Mundo!</string>
+    <string name="username">Seja bem vindo, %s</string>
 </resources>
