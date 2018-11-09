@@ -2,6 +2,7 @@ package br.app.dextra.android_begginer_2018;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -10,6 +11,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Carregando informação da intent
+        Bundle extras = getIntent().getExtras();
+        String username = extras.getString("username");
+
+        // Carregando texto do botão
+        String buttonText = getString(R.string.username, username);
+
+        // Aplicando texto do botão
+        Button button = findViewById(R.id.sayHelloButton);
+        button.setText(buttonText);
     }
 
     @Override

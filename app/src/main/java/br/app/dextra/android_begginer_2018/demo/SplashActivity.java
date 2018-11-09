@@ -25,6 +25,8 @@ public class SplashActivity extends AppCompatActivity {
 
     private void openMainActivity() {
         Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        intent.putExtra("username", "Faustão");
+
         startActivity(intent);
     }
 }
