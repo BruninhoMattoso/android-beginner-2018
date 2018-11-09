@@ -3,6 +3,7 @@ package br.app.dextra.android_begginer_2018;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import br.app.dextra.android_begginer_2018.demo.HomeContentFragment;
 import br.app.dextra.android_begginer_2018.demo.HomeHeaderFragment;
@@ -33,5 +34,29 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container2, HomeContentFragment.newInstance(username))
                 .commitAllowingStateLoss();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "Activity: onResume", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "Activity: onStart", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "Activity: onStop", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "Activity: onDestroy", Toast.LENGTH_SHORT).show();
     }
 }
